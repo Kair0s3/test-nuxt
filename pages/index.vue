@@ -1,52 +1,49 @@
 <template>
-  <section class="section">
-    <div class="columns is-mobile">
-      <card
-        title="Free"
-        icon="github"
-      >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+  <div>
+    <h1>Home Page</h1>
+    <!--Testing -->
+    <div>
+      <NuxtLink to="/Campaign/campaignAddress/info">
+        View Campaign at address - {{testCampaignAddress}}
+      </NuxtLink>
     </div>
-  </section>
+    <!--Testing dynamic routing in Nuxt-->
+    <div>
+      <NuxtLink to="/User/456">
+        View user at address - {{testUserAddress}}
+      </NuxtLink>
+    </div>
+    <!--Testing for loop creation in Nuxt-->
+    <div>
+        <p>
+          Testing for loop for creating nuxtlinks
+        </p>
+        <div v-for="userAddress in testUserAddressList">
+          <NuxtLink :to="`/User/${userAddress}`">
+            Link to User {{userAddress}}
+          </NuxtLink>
+        </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
-import Card from '~/components/Card'
-
 export default {
   name: 'IndexPage',
-  components: {
-    Card
+  data () {
+    return {
+      testCampaignAddress: 123,
+      testUserAddressList: [
+        1, 2, 3, 4, 5, 6
+      ],
+      testUserAddress: 456
+    }
+  },
+  methods: {
+    getCurrentUserAddress () {
+
+    }
   }
 }
 </script>

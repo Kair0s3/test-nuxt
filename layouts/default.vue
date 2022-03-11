@@ -67,6 +67,11 @@ export default {
           title: 'Inspire',
           icon: 'lightbulb',
           to: { name: 'inspire' }
+        },
+        {
+          title: 'Test Nav',
+          icon: 'book',
+          to: { path: '/Campaign/123/info'}
         }
       ]
     }
